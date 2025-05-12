@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+long long int_power(int base, int exp);
 int main(void)
 {
     int weiter = 1;
@@ -28,8 +29,8 @@ int main(void)
     for (int i = 0; i < 10; i++)
     {
         
-        int wert1 = pow(10,first_counter);
-        int wert2 = pow(10,second_counter);
+        int wert1 = int_power(10,first_counter);
+        int wert2 = int_power(10,second_counter);
 
         int z = (eingabe / wert1) - (eingabe / wert2) * 10;
         first_counter--;
@@ -48,5 +49,10 @@ int main(void)
 
 long long int_power(int base, int exp)
 {
-    
+    long long result = 1;
+    for (int i = 0; i < exp; i++)
+    {
+        result = result*base;
+    }
+    return result;
 }
