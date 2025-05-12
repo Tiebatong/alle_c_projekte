@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(void)
 {
     int weiter = 1;
-    int eingabe;
-    printf("Bitte geben sie ien Zahl zwischen 1 und 10000 ein: \n");
+    long long eingabe;
+    printf("Bitte geben sie eine 10 stellige Zahl ein: \n");
     while (weiter)
     {
-        scanf("%d", & eingabe);
-        if (eingabe > 0 && eingabe <= 10000)
+        scanf("%lld", & eingabe);
+        if (eingabe > 0 && eingabe <= 10000000000)
         {
             weiter = 0;
         }
@@ -18,24 +19,34 @@ int main(void)
             printf("out of bounds, bitt erneut eingeben: \n");
         }
     }
-    // 1234      123 - 123/10
-    int s1, s2, s3, s4, s5;
-    
-    s1 = (eingabe / 1000);
-    s2 = (eingabe / 100) - s1 * 10;
-    s3 = (eingabe / 10) - (eingabe / 100) * 10;
-    s4 = eingabe - (eingabe / 10) * 10; 
 
-    printf("%d\n", s1);
-    printf("%d\n", s2);
-    printf("%d\n", s3);
-    printf("%d\n", s4);
 
-    s5 = s1 + s2 + s3 + s4;
-    printf("%d\n", s5);
-    
+    int first_counter = 9;
+    int second_counter = 10;
+    int Quersumme = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        
+        int wert1 = pow(10,first_counter);
+        int wert2 = pow(10,second_counter);
+
+        int z = (eingabe / wert1) - (eingabe / wert2) * 10;
+        first_counter--;
+        second_counter--;
+        Quersumme = Quersumme + z;
+        printf("%d\n", z);
+
+
+    }
+    printf("Quersumme: %d\n", Quersumme);
 
 
     system("pause");
     return 0;
+}
+
+long long int_power(int base, int exp)
+{
+    
 }
