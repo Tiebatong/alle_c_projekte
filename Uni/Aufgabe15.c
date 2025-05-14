@@ -19,27 +19,29 @@ int main(void)
 
     // bespiel 27
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 1; i < 20; i++)
     {
-        for (int x = 0; x < 20; x++)
+        i--;
+        if (zwischen % primzahl[i] == 0)
         {
-            if (zwischen % primzahl[i] == 0)
-            {
-            faktoren[i] = primzahl[i];
+            faktoren[i] = primzahl[i]; //schreibt die Primzahl in das array
             zwischen = zwischen / primzahl[i];
+            i = 0;
+            if (zwischen == 0)
+            {
+                break;
             }
+
         }
-
-
     }
 
     for (int y = 0; y < 10; y++)
     {
         printf("%d\n", faktoren[y]);
     }
-    
 
 
-    //system("pause");
+
+    system("pause");
     return 0;
 }
