@@ -17,17 +17,27 @@ int main(void)
     int zwischen = eingabe;
 
 
-    // bespiel 12
+    // bespiel 27
 
     for (int i = 0; i < 20; i++)
     {
-        if (zwischen % primzahl[i] == 0)
+        for (int x = 0; x < 20; x++)
         {
+            if (zwischen % primzahl[i] == 0)
+            {
             faktoren[i] = primzahl[i];
             zwischen = zwischen / primzahl[i];
+            }
         }
 
+
     }
+
+    for (int y = 0; y < 10; y++)
+    {
+        printf("%d\n", faktoren[y]);
+    }
+    
 
 
     //system("pause");
