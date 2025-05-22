@@ -18,16 +18,30 @@ double Tankinhalt(double, double, double);
 
 int main(void)
 {
-    printf("Bitte geben sie");
+    double gefahrenkm;
+    double verbrauch;
+    double maxtank;
+    printf("Bitte geben sie die gefahrenen Kilometer an: \n");
+    scanf("%lf", &gefahrenkm);
+    printf("Bitte geben sie den Verbrauch auf 100 Kilometern an: \n");
+    scanf("%lf", &verbrauch);
+    printf("Bitte geben sie den maximalen Tank in Litern an: \n");
+    scanf("%lf", &maxtank);
+
+    printf("%lf\n", Spritverbrauch(gefahrenkm, verbrauch));
+    printf("%lf\n", Tankinhalt(gefahrenkm, verbrauch, maxtank));
 
 }
 
-double Spritverbrauch(double, double)
+double Spritverbrauch(double x, double y)
 {
-
+    double verbrauch = x * (y / 100);
+    return verbrauch;
 }
 
-double Tankinhalt(double, double, double)
+double Tankinhalt(double x, double y, double z)
 {
-
+    double verbrauch = x * (y / 100);
+    double resttank = z - verbrauch;
+    return resttank;
 }
