@@ -8,26 +8,52 @@ nung der Fakultäten und Potenzen. Nutzen Sie in Ihrem Programm ausschließlich 
 Sinusfunktion als Potenzreihe:
 */
 #include <stdio.h>
+#include <stdlib.h>
 
-int factorial(int a);
+const float pi = 3.141592653;
+double factorial(int x);
+double power(double basis, int exponent);
 
 int main(void)
 {
-    int a = 0;
+    double a = 0;
     printf("Bitte geben sie den Winkel a ein: \n");
-    scanf("%d", &a);
+    scanf("%lf", &a);
+    a = (a / 180) * pi;
+    double sinus = 0;
 
-    printf("%d\n", factorial(a));
+    for (int n = 0; n < 5; n++)
+    {
+        int exp = 2 * n + 1;
+        
+        double term = power( -1, n) * power(a, exp) / factorial(exp);
+        sinus += term;
+    }
+
+    printf("der Sinus betraegt: %lf", sinus);
+    system("pause");
     return 0;
+    
 }
 
-int factorial(int x)
+
+double factorial(int x)
 {
-    int fac = 1;
+    double fac = 1;
     
     for (int i = 0; i < x; i++)
     {
         fac = fac * (x - i);
     }
     return fac;
+}
+
+double power(double basis, int exponent) 
+{
+    double zwischen = 1;
+    for (int m = 0; m < exponent; m++)
+    {
+        zwischen *= basis;
+    }
+    return zwischen;
 }
