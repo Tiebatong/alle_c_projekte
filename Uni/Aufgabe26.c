@@ -13,8 +13,15 @@ int main(void)
     printf("\nmittelwert:\n");
     senkrecht_print(&vektor_mittel[0]);
 
+    system("pause");
     return 0;
 }
+
+
+
+
+
+
 
 int senkrecht_print(float*ptr)
 {
